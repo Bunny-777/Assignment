@@ -16,6 +16,7 @@ function distKm(lat1, lon1, lat2, lon2) {
 }
 
 app.post('/addSchool', (req, res) => {
+    console.log('Inserting into DB:', conn.config.database);
   const { name, address, latitude, longitude } = req.body;
   if (!name || !address || typeof latitude !== 'number' || typeof longitude !== 'number') {
     return res.status(400).json({ error: 'Invalid name, address, latitude, or longitude' });
